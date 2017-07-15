@@ -1,0 +1,35 @@
+---
+- name: rpm | Install Docker CS repository
+  yum_repository:
+    name: docker
+    description: Docker CS Packages
+    baseurl: "https://packages.docker.com/{{docker_version}}/yum/repo/{{docker_repo}}/{{ansible_distribution|lower}}/{{ansible_distribution_major_version}}"
+
+- name: rpm | Install the gpg key
+  rpm_key:
+    state: present
+    key: "https://packages.docker.com/{{docker_version}}/yum/gpg"
+
+- name: rpm | Get the Docker engine
+  yum:
+    name: docker-engine
+    state: present
+
+- name: rpm | Make systemd override directory
+  file:
+    path: /etc/systemd/system/docker.service.d
+    state: directory
+
+- name: rpm | Add systemd override
+  copy:
+    src: docker.service
+    dest: /etc/systemd/system/docker.service.d/system-overrides.conf
+    owner: root
+    group: root
+    mode: 0644
+
+- name: rpm | Configure the Docker engine
+  template:
+    src: config.j2
+    dest: "{{docker_config}}"
+  notify: restart docker-engine

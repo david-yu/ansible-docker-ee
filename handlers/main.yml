@@ -1,0 +1,5 @@
+---
+ - name: restart docker-engine
+   service:
+     name: "{{ docker_daemon }}"
+     state: restarted

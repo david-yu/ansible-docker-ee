@@ -1,0 +1,45 @@
+---
+- name: deb | Enable HTTPS APT transport and refresh apt cache
+  apt:
+    name: "{{item}}"
+    state: present
+    update_cache: true
+    cache_valid_time: 3600
+  with_items:
+    - apt-transport-https
+    - ca-certificates
+
+# Python 2.7.6 can't use TLS SNI so we have to use the keyserver method rather
+# then use the gpg file like we do over in redhat land. The keyserver method is
+# also "the better way"
+# https://github.com/ansible/ansible/issues/12161
+- name: deb | Add apt gpg key
+  apt_key:
+    keyserver: "{{docker_keyserver}}"
+    state: present
+    id: "{{docker_gpg_fingerprint}}"
+
+- name: deb | Install Docker EE repository
+  apt_repository:
+    repo: "deb [arch=amd64] https://packages.docker.com/{{docker_version}}/apt/repo {{ansible_distribution|lower}}-{{ansible_distribution_release}} {{docker_repo}}"
+    state: present
+    filename: docker
+
+- name: deb | Get the Linux Extras and apparmor
+  apt:
+    name: "{{item}}"
+    state: present
+  with_items:
+    - "linux-image-extra-{{ansible_kernel}}"
+    - apparmor
+
+- name: deb | Get the Docker engine
+  apt:
+    name: docker-engine
+    state: present
+
+- name: deb | Configure the Docker engine
+  template:
+    src: config.j2
+    dest: "{{docker_config}}"
+  notify: restart docker-engine

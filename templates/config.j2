@@ -1,0 +1,11 @@
+LABELS="{% for key, value in docker_engine_labels.iteritems() %}--label {{key}}={{value}}{% if not loop.last %} {% endif %}{% endfor %}"
+DOCKER_OPTS="${LABELS}"
+{% if docker_selinux |default(false) %}
+DOCKER_OPTS="${DOCKER_OPTS} --selinux-enabled"
+{% endif %}
+{% if docker_bind_socket %}
+DOCKER_OPTS="${DOCKER_OPTS} -H unix:///var/run/docker.sock"
+{% endif %}
+{% if docker_bind_ip %}
+DOCKER_OPTS="${DOCKER_OPTS} -H {{docker_bind_ip}}:{{docker_port}}"
+{% endif %}

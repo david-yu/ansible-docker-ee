@@ -1,0 +1,4 @@
+---
+docker_daemon: "docker"
+docker_gpg_fingerprint: "EE6D536CF7DC86E2D7D56F59A178AC6C6238F52E"
+docker_keyserver: "keyserver.ubuntu.com"
