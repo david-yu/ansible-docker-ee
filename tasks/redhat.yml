@@ -12,7 +12,7 @@
 
 - name: rpm | Get the Docker engine
   yum:
-    name: docker-engine
+    name: docker-ee-{{ansible_distribution|lower}}
     state: present
 
 - name: rpm | Make systemd override directory

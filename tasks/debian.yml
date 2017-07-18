@@ -15,8 +15,9 @@
 # https://github.com/ansible/ansible/issues/12161
 - name: deb | Add apt gpg key
   apt_key:
-    keyserver: "https://storebits.docker.com/ee/linux/{{docker_subscription}}/ubuntu/gpg
+    keyserver: "https://storebits.docker.com/ee/linux/{{docker_subscription}}/ubuntu/gpg"
     state: present
+    id: "docker_gpg_fingerprint"
 
 - name: deb | Install Docker EE repository
   apt_repository:
@@ -34,7 +35,7 @@
 
 - name: deb | Get the Docker engine
   apt:
-    name: docker-engine
+    name: docker-ee
     state: present
 
 - name: deb | Configure the Docker engine

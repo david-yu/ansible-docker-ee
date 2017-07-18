@@ -1,13 +1,12 @@
 Docker EE Engine
 ================
 
-A playbook to install and configure Docker's Commercially Supported release of
-Docker Engine.
+A playbook to install and configure Docker Enterprise Edition Engine.
 
 Requirements
 ------------
 
-Access to the internet. The playbook will reach out to
+Access to the internet and a subscription to Docker EE on <https://store.docker.com>. The playbook will reach out to
 <https://storebits.docker.com/>.
 
 Role Variables

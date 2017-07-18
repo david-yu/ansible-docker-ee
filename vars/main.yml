@@ -1,3 +1,3 @@
 ---
 docker_daemon: "docker"
-docker_keyserver: "https://download.docker.com/linux/ubuntu/gpg"
+docker_gpg_fingerprint: "DD911E995A64A202E85907D6BC14F10B6D085F96"
