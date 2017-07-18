@@ -42,4 +42,4 @@
   template:
     src: config.j2
     dest: "{{docker_config}}"
-  notify: restart docker-engine
+  notify: restart docker-ee
