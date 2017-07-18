@@ -15,8 +15,7 @@ Role Variables
 
 | Parameter            | Required | Default  | Description                                               |
 | -------------------- | -------- | -------- | --------------------------------------------------------- |
-| docker_version       | no       | 17.03    | The version of EE Engine you want to install (17.03, 17.06) |
-| docker_repo          | no       | main     | The repo to install CS Engine from (testing, main)        |
+| docker_repo          | no       | main     | The repo to install EE Engine from (stable-17.03, etc)    |
 | docker_engine_labels | no       |          | A map of labels for this engine                           |
 | docker_bind_socket   | no       | true     | Should the engine bind to the Docker socket               |
 | docker_bind_ip       | no       |          | Should the engine bind to an ip address                   |

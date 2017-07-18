@@ -8,7 +8,7 @@
 - name: rpm | Install the gpg key
   rpm_key:
     state: present
-    key: "https://packages.docker.com/{{docker_version}}/yum/gpg"
+    key: "https://storebits.docker.com/ee/linux/{{docker_subscription}}/rhel/gpg"
 
 - name: rpm | Get the Docker engine
   yum:

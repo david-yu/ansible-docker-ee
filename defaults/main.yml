@@ -1,6 +1,6 @@
 ---
-docker_version: 17.03
-docker_repo: main
+docker_repo: stable-17.03
+docker_subscription: ""
 docker_engine_labels: {}
 docker_bind_socket: true
 docker_bind_ip: ""

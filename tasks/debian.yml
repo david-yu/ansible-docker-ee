@@ -15,12 +15,12 @@
 # https://github.com/ansible/ansible/issues/12161
 - name: deb | Add apt gpg key
   apt_key:
-    keyserver: "{{docker_keyserver}}"
+    keyserver: "https://storebits.docker.com/ee/linux/{{docker_subscription}}/ubuntu/gpg
     state: present
 
 - name: deb | Install Docker EE repository
   apt_repository:
-    repo: "deb [arch=amd64] https://storebits.docker.com/ee/linux/ubuntu $(lsb_release -cs) {{docker_repo}}"
+    repo: "deb [arch=amd64] https://storebits.docker.com/ee/linux/{{docker_subscription}} $(lsb_release -cs) {{docker_repo}}"
     state: present
     filename: docker
 
