@@ -1,8 +1,8 @@
 ---
-- name: rpm | Install Docker CS repository
+- name: rpm | Install Docker EE repository
   yum_repository:
     name: docker
-    description: Docker CS Packages
+    description: Docker EE Packages
     baseurl: "https://packages.docker.com/{{docker_version}}/yum/repo/{{docker_repo}}/{{ansible_distribution|lower}}/{{ansible_distribution_major_version}}"
 
 - name: rpm | Install the gpg key

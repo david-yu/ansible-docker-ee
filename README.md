@@ -8,7 +8,7 @@ Requirements
 ------------
 
 Access to the internet. The playbook will reach out to
-<https://packages.docker.com>.
+<https://storebits.docker.com/>.
 
 Role Variables
 --------------
@@ -40,7 +40,7 @@ Simple example that includes a couple of labels.
       storage: ssd
       location: rack1
   roles:
-    - cs_engine
+    - ee_engine
 ```
 
 License

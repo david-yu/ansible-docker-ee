@@ -17,11 +17,10 @@
   apt_key:
     keyserver: "{{docker_keyserver}}"
     state: present
-    id: "{{docker_gpg_fingerprint}}"
 
 - name: deb | Install Docker EE repository
   apt_repository:
-    repo: "deb [arch=amd64] https://packages.docker.com/{{docker_version}}/apt/repo {{ansible_distribution|lower}}-{{ansible_distribution_release}} {{docker_repo}}"
+    repo: "deb [arch=amd64] https://storebits.docker.com/ee/linux/ubuntu $(lsb_release -cs) {{docker_repo}}"
     state: present
     filename: docker
 
