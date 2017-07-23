@@ -14,6 +14,7 @@ Role Variables
 
 | Parameter            | Required | Default  | Description                                               |
 | -------------------- | -------- | -------- | --------------------------------------------------------- |
+| docker_subscription  | yes      |          | The subscription id provisioned by Docker storebits       |
 | docker_repo          | no       | main     | The repo to install EE Engine from (stable-17.03, etc)    |
 | docker_engine_labels | no       |          | A map of labels for this engine                           |
 | docker_bind_socket   | no       | true     | Should the engine bind to the Docker socket               |
