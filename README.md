@@ -50,4 +50,4 @@ Apache 2.0
 Author Information
 ------------------
 
-Chad Metcalf <mailto:metcalfc@gmail.com>
+David Yu
