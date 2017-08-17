@@ -17,7 +17,7 @@
   apt_key:
     keyserver: "https://storebits.docker.com/ee/linux/{{docker_subscription}}/ubuntu/gpg"
     state: present
-    id: "docker_gpg_fingerprint"
+    id: "{{docker_gpg_fingerprint}}"
 
 - name: deb | Install Docker EE repository
   apt_repository:
