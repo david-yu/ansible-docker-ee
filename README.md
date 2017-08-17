@@ -35,6 +35,7 @@ Simple example that includes a couple of labels.
 - hosts: all
   become: true
   vars:
+    docker_subscription: sub-xxx-xxx-xxx-xxx
     docker_engine_labels:
       storage: ssd
       location: rack1
