@@ -21,7 +21,7 @@
 
 - name: deb | Install Docker EE repository
   apt_repository:
-    repo: "deb [arch=amd64] https://storebits.docker.com/ee/linux/{{docker_subscription}} {{ansible_distribution|lower}}-{{ansible_distribution_release}} {{docker_repo}}"
+    repo: "deb [arch=amd64] https://storebits.docker.com/ee/linux/{{docker_subscription}} {{ansible_distribution_release}} {{docker_repo}}"
     state: present
     filename: docker
 
