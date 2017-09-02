@@ -41,4 +41,9 @@
   template:
     src: config.j2
     dest: "{{docker_config}}"
-  notify: restart docker-ee
+  notify: restart docker-engine
+
+- name: Adding existing user ubuntu to group docker
+  user: name=ubuntu
+        groups=docker
+        append=yes
