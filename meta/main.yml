@@ -1,14 +1,11 @@
 galaxy_info:
-  author: metcalfc
+  author: yongshin
   description: Install Docker Enterprise Edition Engine
   license: "license (Apache)"
 
   min_ansible_version: 2.1
 
   platforms:
-  - name: EL
-    versions:
-    - 7
   - name: Ubuntu
     versions:
     - xenial
